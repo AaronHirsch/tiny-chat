@@ -1,0 +1,9 @@
+
+template(name='header')
+  header
+    {{> loginButtons}}
+
+    unless currentUser
+      h2 Welcome, buddy!
+    else
+      h2 Welcome, {{currentUser.username}}!

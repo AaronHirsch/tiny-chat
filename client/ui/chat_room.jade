@@ -1,0 +1,23 @@
+
+template(name='chat_room')
+  .chat_room
+
+    .chat_room__row
+      .chat_room__header
+        h4= chat_room.name
+        a(href='/welcome') Close
+
+    .chat_room__row
+      ul.chat_room__messages
+        each messages
+          {{> message}}
+
+    .chat_room__row
+      form.chat_room__controllers(autocomplete='off')
+        unless currentUser
+          input(type='text', name='author', placeholder='Username', required)
+        else
+          input(type='hidden', name='author', value='{{currentUser.username}}')
+        input(type='text', name='content', placeholder='Type something..', required)
+        input(type='hidden', name='chat_room', value='{{_id}}')
+        button(type='submit') Send

@@ -1,0 +1,165 @@
+
+$btn_gradient_left = #06beb6
+$btn_gradient_right = #48b1bf
+$btn_gradient_right_hover = #329cab
+
+$bg_gradient_left = #00cdac
+$bg_gradient_right = #8ddad5
+
+$box_shadow_color = #3ea1ad
+
+$bg_light_grey = #f7f7f7
+$bg_grey = #eae9e9
+
+$box-shadow()
+  box-shadow: 1px 5px 15px $box_shadow_color
+
+$default_button()
+  color: white
+  background: linear-gradient(to right, $btn_gradient_left, $btn_gradient_right)
+  border: none
+  border-radius: initial
+  font-size: 16px
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .2)
+
+  &:hover
+    background: linear-gradient(to right, $btn_gradient_left, $btn_gradient_right_hover)
+
+body
+  font-family: 'Istok Web', sans-serif
+  display: flex
+  height: 100vh
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  margin: 0
+  padding: 0
+  background: $bg_gradient_left
+  background-image: linear-gradient(-20deg, $bg_gradient_left 0%, $bg_gradient_right 100%)
+
+
+h2, h3, h4, h5
+  color: white
+  margin: 0
+  padding: 0
+
+header
+  color: white
+  background: linear-gradient(to right, $btn_gradient_left, $btn_gradient_right)
+  padding: 15px
+  display: flex
+  align-items: baseline
+  justify-content: space-between
+
+  #login-buttons .login-button, .accounts-dialog .login-button
+    $default_button()
+
+  .accounts-dialog
+    border-radius: initial
+    border: initial
+    $box-shadow()
+
+header, section.content
+  width: 75vw
+
+section.content
+  background: white
+  overflow: hidden
+
+.welcome_screen
+  &__headline
+    font-size: 14px
+    color: black
+    padding: 15px
+
+  &__groups
+    margin: 0
+    list-style: none
+    padding: 15px
+    padding-top: 0
+
+  &__group
+    span
+      font-size: 8px
+
+    &:not(.welcome_screen__group--private)
+      span
+        display: none
+
+.chat_room
+  display: flex
+  flex-direction: column
+  height: 80vh
+
+  &__row
+    display: flex
+
+    &:nth-child(1), &:nth-child(3)
+      flex: 0 0 10%
+
+    &:nth-child(2)
+      flex: 0 0 80%
+
+  &__controllers, &__header, &__messages
+    width: 100%
+    padding: 0 15px
+
+  &__header,  &__controllers
+    color: black
+    display: block
+    background: $bg_light_grey
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  &__header
+    border-bottom: 1px solid $bg_grey
+
+    h4, a
+      color: inherit
+      display: inline-block
+
+    a
+      float: right
+
+  &__messages
+    height: auto
+    overflow-y: scroll
+    margin-right: -20px
+    list-style: none
+
+  &__message
+    padding: 5px 0
+
+    &__createdAt
+      font-size: 10px
+      font-style: italic
+      font-family: 'Late', serif
+      padding: 5px 0
+
+    &__username
+      font-style: normal
+      font-family: initial
+      display: inline-block
+      font-size: 10px
+
+    &__content
+      display: inline-block
+      background: $bg_grey
+      border-radius: 2px
+      padding: 0 5px
+      font-size: 12px
+
+  &__controllers
+   border-top: 1px solid $bg_grey
+
+   input[name='username']
+    flex: 0 0 15%
+
+   input[name='content']
+    flex: 0 0 75%
+
+   button
+     flex: 0 0 10%
+     $default_button()
+

@@ -1,0 +1,8 @@
+
+template(name='welcome_screen')
+  h3.welcome_screen__headline Do u wanna chat a bit? Choose a chat room below
+  ul.welcome_screen__groups
+    each rooms
+      li.welcome_screen__group(class='{{#if private}}welcome_screen__group--private{{/if}}')
+        a(href='/room/{{_id}}')= name
+        span='Private'

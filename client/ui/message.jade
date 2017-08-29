@@ -1,0 +1,9 @@
+
+template(name='message')
+  li.chat_room__message
+    .chat_room__message__createdAt
+      | {{formatDate createdAt}}
+      | from
+      .chat_room__message__username= author
+
+    .chat_room__message__content= content
