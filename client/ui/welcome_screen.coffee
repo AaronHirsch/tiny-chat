@@ -14,5 +14,6 @@ Template.welcome_screen.onCreated ->
 
 Template.welcome_screen.helpers
   rooms: ->
-    ChatRooms.find({}, { sort: { private: 1 } })
+    query = unless Meteor.user()? then { private: false } else {}
+    ChatRooms.find(query, { sort: { private: 1 } })
 
